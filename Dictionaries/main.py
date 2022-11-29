@@ -35,7 +35,7 @@ iterateDictionary(newStudents)
 
 def iterateDictionary2(key_name, some_list):
     for i in range(len(some_list)):
-        print(some_list[i].get(key_name))
+        print(some_list[i][key_name])
 
 newStudents = [
          {'first_name':  'Michael', 'last_name' : 'Jordan'},
@@ -44,6 +44,7 @@ newStudents = [
          {'first_name' : 'KB', 'last_name' : 'Tonel'}
     ]
 iterateDictionary2('first_name', newStudents)
+iterateDictionary2('last_name', newStudents)
 
 def printInfo(some_list):
     for k,v in some_list.items():
