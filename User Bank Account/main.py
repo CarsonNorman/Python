@@ -53,6 +53,6 @@ class User:
 
 
 Harry = User("Harry", "mas@hot.com")
-Jacob = User("Jacob", "TurkeyBoy@shitter.com")
+Jacob = User("Jacob", "TurkeyBoy@jacob.com")
 Harry.make_deposit(1000).display_user_balance().transfer_money(100, Jacob).display_user_balance()
 Jacob.display_user_balance()
