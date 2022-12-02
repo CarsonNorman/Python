@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <form action="/submit" id="info" method="post">
+            <h3 class="formText">Name</h3>
+            <input type="text" placeholder="Your Name" name="name">
+            <h3 class="formText">Location</h3>
+            <select name="locations" for="info">
+                <option value="">--Please select location--</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="Texas">Texas</option>
+                <option value="New York">New York</option>
+            </select>
+            <h3 class="formText">Favorite Language</h3>
+            <select name="language" for="info">
+                <option value="">--Please select language--</option>
+                <option value="Python">Python</option>
+                <option value="JS">JS</option>
+                <option value="Java">Java</option>
+                <option value="C#">C#</option>
+            </select>
+            <h3 class="formText">Tell us about you</h3>
+            <input type="textarea"  placeholder="about you" name="about">
+            <input type="submit" value="submit">       
+        </form>            
+    </div>
+</body>
+</html>
