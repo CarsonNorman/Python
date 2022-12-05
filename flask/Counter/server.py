@@ -6,7 +6,6 @@ app.secret_key = 'Carson'
 def render():
     if 'count' not in session:
         session['count'] = 0
-        print('added session')
     session['count']+=1
     return render_template('index.html', count=session['count'])
 @app.route('/addTwo', methods=['POST'])
