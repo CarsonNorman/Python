@@ -3,7 +3,8 @@ app = Flask(__name__)
 app.secret_key = 'Carson'
 
 @app.route('/', methods=['GET'])
-def render():        
+def render():     
+    session.clear()   
     return render_template('index.html')
 
 @app.route('/submit', methods=['POST'])
@@ -12,6 +13,10 @@ def submit():
     session['Location'] = request.form.get('locations')
     session['Language'] = request.form.get('language')
     session['About'] = request.form.get('about')
+    return redirect('/result')
+
+@app.route('/result')
+def result():
     return render_template('end.html', data=session.items())
 
 if __name__=="__main__":    
