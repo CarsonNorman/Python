@@ -9,10 +9,10 @@ def render():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    session['Name'] = request.form.get('name')
-    session['Location'] = request.form.get('locations')
-    session['Language'] = request.form.get('language')
-    session['About'] = request.form.get('about')
+    session['Name'] = request.form['name']
+    session['Location'] = request.form['locations']
+    session['Language'] = request.form['language']
+    session['About'] = request.form['about']
     return redirect('/result')
 
 @app.route('/result')
