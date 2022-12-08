@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ninjaform.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/create/ninja/confirm" method="post">
+        <label for="fname">First Name</label>
+        <input name="fname">
+        <label for="lname">Last Name</label>
+        <input name="lname">
+        <label for="age">Age</label>
+        <input name="age">
+        <label for="dojo">Dojo Choice</label>
+        <select name="dojo">
+            {% for dojo in dojos%}
+            <option value="{{dojo.id}}" >{{dojo.name}}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Create Ninja">
+    </form>
+</body>
+</html>
