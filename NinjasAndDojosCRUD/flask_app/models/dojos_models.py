@@ -16,6 +16,13 @@ class Dojo:
             dojos.append( cls(dojo) )
         return dojos
     @classmethod
+    def get_one(cls, data):
+        query = """
+        SELECT * FROM dojos WHERE id=%(id)s;
+        """
+        results = connectToMySQL('dojosandninjas').query_db(query, data)
+        return results
+    @classmethod
     def get_all_info(cls, data):
         query="""
         SELECT dojos.name, ninjas.first_name, ninjas.last_name, ninjas.age
@@ -23,6 +30,8 @@ class Dojo:
         WHERE dojos.id = %(id)s
         """
         results = connectToMySQL('dojosandninjas').query_db(query, data)
+        if not results:
+            return Dojo.get_one(data)
         return results
         
     @classmethod

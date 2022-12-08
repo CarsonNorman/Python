@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    {% if dojo[0] %}
+
     <h1>{{dojo[0].name}} Ninjas</h1>
-    
+     {% if 'first_name' in dojo[0] %}
     <table>
         <thead>
             <tr>
@@ -19,6 +19,7 @@
             </tr>
         </thead>
         <tbody>
+       
         {% for ninja in dojo %}
             <tr>
                 <td>{{ninja.first_name}}</td>
@@ -26,11 +27,11 @@
                 <td>{{ninja.age}}</td>
             </tr>
             {% endfor %}
+        
         </tbody>
     </table>
-
-    {% else %}
-    <h1>No ninjas in dojo</h1>
+    {%else%}
+    <h2>No Ninjas in Dojo</h2>
     {% endif %}
     <a href="/">Home</a>
 </body>
