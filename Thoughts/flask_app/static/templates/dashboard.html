@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <script async src="https://kit.fontawesome.com/19d668566d.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
@@ -22,6 +23,14 @@
             <div class="thought">
                 <h3>{{thought.name}} says:</h3>
                 <p>{{thought.thought}}</p> 
+                {% set likes = [] %}
+                <a href="/like/{{userData.id}}/{{thought.thought_id}}">
+                    <i style="color:aquamarine" class="fa-solid fa-heart" onmouseenter="style='color: #444'" onmouseleave="style='color:aquamarine'"></i>
+                </a>
+                {% for like in likeData if like.thought_id == thought.thought_id %}
+                    <p style="display: none;">{{ likes.append(like) }}</p>
+                {%endfor%}
+                <p style="display: inline; float: right;">likes {{likes|length}}</p>
             </div>
                 {% if userData.id == thought.id %}
                 <a class="delete-btn" href="/delete/post/{{thought.thought_id}}">delete</a>

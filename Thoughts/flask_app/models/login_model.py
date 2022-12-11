@@ -34,10 +34,7 @@ class Login:
         results = connectToMySQL('thoughts').query_db(query, data)
         print(results)
         return results[0]
-        
-        
-        
-
+  
     @classmethod
     def login(cls, data):
         print('data',data)

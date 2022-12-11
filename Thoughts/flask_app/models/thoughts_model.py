@@ -38,6 +38,11 @@ class Thought:
     @classmethod
     def delete(cls, data):
         query="""
+        Delete From likes WHERE
+        thought_id = %(id)s;
+        """
+        connectToMySQL('thoughts').query_db(query, data)
+        query="""
         DELETE FROM thoughts 
         WHERE id = %(id)s
         """
@@ -47,3 +52,18 @@ class Thought:
     @classmethod
     def get_all_following(cls):
         return cls.get_all_thoughts()
+
+    @staticmethod
+    def like(data):
+        query="""
+        INSERT INTO likes(user_id, thought_id)
+        VALUE(%(user)s, %(thought)s)
+        """
+        results = connectToMySQL('thoughts').query_db(query, data)
+    @staticmethod
+    def get_likes():
+        query="""
+        SELECT *
+        from likes 
+        """
+        return connectToMySQL('thoughts').query_db(query)
