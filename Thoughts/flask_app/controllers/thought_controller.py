@@ -22,7 +22,7 @@ def renderHome(id):
         else:
             print('Running all filter' )
             postData = Thought.get_all_thoughts()
-        print(postData)
+        print('postData', postData)
         return render('dashboard.html', userData = userData, postData=postData)
     else: 
         flash('Please Login')

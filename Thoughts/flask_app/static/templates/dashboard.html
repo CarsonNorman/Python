@@ -8,24 +8,32 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Welcome {{userData.name}}</h1>
-    <a href="/create/post/{{userData.id}}">Create Post</a>
-    <div id="filter-holder">
-        <a href="/applyFilter/{{userData.id}}/all">All Posts</a>
-        <a href="/applyFilter/{{userData.id}}/own">Own Posts</a>
-        <a href="/applyFilter/{{userData.id}}/following">Following Only</a>
-    </div>
-    <div id="thought-container">
-        {% for thought in postData%}
-        <div class="thought">
-            <h3>{{thought.name}}</h3>
-            <p>{{thought.thought}}</p> 
+    <h1>Welcome <span style="color:rgb(210, 202, 202) ;">{{userData.name}}</span></h1>
+    <div id="container">
+        <div id="button-holder">
+            <a href="/create/post/{{userData.id}}">Create Post</a>
+            <a href="/applyFilter/{{userData.id}}/all">All Posts</a>
+            <a href="/applyFilter/{{userData.id}}/own">Own Posts</a>
+            <a href="/applyFilter/{{userData.id}}/following">Following Only</a>
+            <a href="/logout">Logout</a>
         </div>
-        {% if userData.id == thought.id %}
-            <a class="delete-btn" href="/delete/post/{{thought.thought_id}}">delete</a>
-            {% endif %}
-        {% endfor %}
+        <div id="thought-container">
+            {% for thought in postData%}
+            <div class="thought">
+                <h3>{{thought.name}} says:</h3>
+                <p>{{thought.thought}}</p> 
+            </div>
+                {% if userData.id == thought.id %}
+                <a class="delete-btn" href="/delete/post/{{thought.thought_id}}">delete</a>
+                {% endif %}
+            {% endfor %}
+            {% if postData|length == 0 %}
+                <div class="thought" style="text-align: center;">
+                    <a style='color:#444;' href="/create/post/{{userData.id}}">Create First Post</a>
+                </div>
+                {% endif %}
+        </div>
     </div>
-    <a href="/logout">Logout</a>
+    
 </body>
 </html>

@@ -3,6 +3,8 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background: rgb(4,25,61);
+    background: linear-gradient(90deg, rgba(4,25,61,1) 0%, rgba(21,24,34,1) 52%, rgba(4,25,61,1) 100%);
 }
 body > form{
     display: flex;

@@ -17,6 +17,9 @@
                 {% endif %}
             {% endwith %}
         {% endif %}
+        <div id="banner">
+            <h1>Cri<span style="color: aquamarine;">tter</span></h1>
+        </div>
     <div id="form-holder">
     <form id='login' action="/validateLog" method="post" >
         {% if err == 2 %}
@@ -34,22 +37,7 @@
         <input  type='password' placeholder="password" name="pass">
         <input type="submit">
     </form>
-    <form id="create" action="/validateCreate" method="post">
-        {% if err == 1%}
-            {% with messages = get_flashed_messages()%}
-                {% if messages%}
-                    {% for message in messages%}
-                     <p style="color:red; font-size:1em;">{{message}}</p>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            {% endif %}
-        <label for="create">Create</label> 
-        <input placeholder="Username" name="name">
-        <input placeholder="password" type='password' name="pass">
-        <input placeholder="Confirm Password" type='password' name="pass-confirm">
-        <input type="submit">
-    </form>
+    <a href="/newUser">New User</a>
     </div>
     
 </body>

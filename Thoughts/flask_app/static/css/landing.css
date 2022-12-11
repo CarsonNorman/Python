@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     color:#444;
+    font-family: Arial, Helvetica, sans-serif;
 }
 body,
 div{
@@ -12,18 +13,23 @@ body{
     flex-direction: column;
     width: 75%;
     margin: auto;
+    background: rgb(4,25,61);
+    background: linear-gradient(90deg, rgba(4,25,61,1) 0%, rgba(21,24,34,1) 52%, rgba(4,25,61,1) 100%);
 }
 body > div{
     justify-content: center;
     align-items: center;
 }
 #form-holder{
-    justify-content: space-around;
-
+    display: flex;
+    flex-direction: column;
+    
 }
 #form-holder > form{
     width: 30%;
     height: 200px;
+    min-width: 300px;
+    min-height: 200px;
     background-color: #444;
     border-radius: 25px;
     margin-top:25px;    
@@ -38,11 +44,19 @@ label{
     width: 45%;
     text-align: center;
 }
+#form-holder a{
+    font-size: 1.5em;
+    text-decoration: none;
+    color:rgb(80, 80, 80);
+}
 #login label{
-    color: green;
+    color: aquamarine;
     font-size: 2em;
 }
 #create label{
-    color: blue;
+    color: aquamarine;
     font-size: 2em;
+}
+#banner h1{
+    font-size: 3em;
 }

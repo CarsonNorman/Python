@@ -6,6 +6,8 @@
 body{
     width: 65%;
     margin: auto;
+    background: rgb(4,25,61);
+    background: linear-gradient(90deg, rgba(4,25,61,1) 0%, rgba(21,24,34,1) 52%, rgba(4,25,61,1) 100%);
 }
 #thought-container{
     width: 50%;
@@ -13,6 +15,10 @@ body{
     display: flex;
     flex-direction: column;
     gap:20px;
+}
+#button-holder{
+    display: flex;
+    flex-direction: column;
 }
 .thought{
     border: solid #000 1px;
@@ -24,4 +30,13 @@ body{
 .delete-btn{
     font-size: 1em;
     color: red;
+}
+a{
+    color: aquamarine;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+#container{
+    display: flex;
+
 }

@@ -9,18 +9,23 @@ from flask_app.models.thoughts_model import Thought
 def landing(err=0):
     return render('landing.html', err=err)
 
+@app.route('/newUser')
+@app.route('/newUser/<int:err>')
+def newUser(err=0):
+    return render('newUser.html', err=err)
+
 @app.route('/validateCreate', methods=['POST'])
 def validateCreate():
     formData = request.form
     if formData['name'] == '':
         flash('Name Field Cannot be empty')
-        return redirect(url_for('landing', err=1))
+        return redirect(url_for('newUser', err=1))
     if formData['pass'] == '':
         flash('Password Field Cannot be empty')
-        return redirect(url_for('landing', err=1))
+        return redirect(url_for('newUser', err=1))
     if formData['pass-confirm'] == '' or formData['pass-confirm'] != formData['pass']:
         flash('Passwords do not match')
-        return redirect(url_for('landing', err=1))
+        return redirect(url_for('newUser', err=1))
     hash = bcrypt.generate_password_hash(formData['pass'])
     data = {
         **request.form,
