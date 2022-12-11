@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: #444;
+}
+body{
+    width: 65%;
+    margin: auto;
+}
+#thought-container{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.thought{
+    border: solid #000 1px;
+    border-radius: 15px;
+    background-color:  rgb(210, 202, 202);
+    flex:1;
+    padding: 10px;
+}
+.delete-btn{
+    font-size: 1em;
+    color: red;
+}
