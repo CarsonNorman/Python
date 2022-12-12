@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome, {{userData.name}}</h1>
+    <a href="/dashboard/{{userData.id}}">Back to all recipes</a>
+    <a href="/logout">Logout</a>
+    <h2>{{recipe.name}}</h2>
+    <h3>Added by: {{recipe.user}}</h3>
+    <div>
+        <h3>description: {{recipe.description}}</h3>
+        <h3>Under 30 minutes?: {% if recipe.under == 1%}
+            Yes
+            {% else %}
+            No
+            {% endif%}</h3>
+        <h3>Instructions: {{recipe.instructions}}</h3>
+        <h3>Made At: {{recipe.made_at}}</h3>
+    </div>
+</body>
+</html>

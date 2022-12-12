@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/recipe/edit/confirm/{{recipeData.id}}" method="post">
+        <label>Recipe Name</label><br>
+        <input type="text" name="name" placeholder="{{recipeData.name}}" 
+        value="{{recipeData.name}}"><br>
+        <label>Recipe description</label><br>
+        <textarea name="description" placeholder="{{recipeData.description}}" 
+        value="{{recipeData.description}}"></textarea><br>
+        <label>Recipe instructions</label><br>
+        <textarea name="instructions" placeholder="{{recipeData.instructions}}" 
+        value ="{{recipeData.instructions}}"></textarea><br>
+        <label>Made at</label><br>
+        <input type="date" name="made_at" min="2018-01-01" max="2022-12-12" placeholder="{{recipeData.made_at}}"
+        value="{{recipeData.made_at}}"><br>
+        <label>Under 30 minutes?</label><br>
+        <label for="yes">Yes</label>
+        <input type="radio" id='yes' for="under" value="1" name="under" checked><br>
+        <label for="no">No</label>
+        <input type="radio" id='no' for="under" value="0" name="under"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

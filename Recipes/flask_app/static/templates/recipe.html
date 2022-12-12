@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages()%}
+                {% if messages%}
+                    {% for message in messages%}
+                     <p style="color:red; font-size:1em; text-align: center;">{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+    <form action="/recipe/validate/{{id}}" method="post">
+        <label>Recipe Name</label><br>
+        <input type="text" name="name"><br>
+        <label>Recipe description</label><br>
+        <textarea name="description"></textarea><br>
+        <label>Recipe instructions</label><br>
+        <textarea name="instructions"></textarea><br>
+        <label>Made at</label><br>
+        <input type="date" name="made_at" min="2018-01-01" max="2022-12-12" value="2022-12-12"><br>
+        <label>Under 30 minutes?</label><br>
+        <label for="yes">Yes</label>
+        <input type="radio" id='yes' for="under" value="1" name="under" checked><br>
+        <label for="no">No</label>
+        <input type="radio" id='no' for="under" value="0" name="under"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    {% if err == 3%}
+            {% with messages = get_flashed_messages()%}
+                {% if messages%}
+                    {% for message in messages%}
+                     <p style="color:red; font-size:1em; text-align: center;">{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+    <div id="form-holder">
+    <form id='login' action="/validateLog" method="post" >
+        {% if err == 2 %}
+            {% with messages = get_flashed_messages()%}
+                {% if messages%}
+                    {% for message in messages%}
+                     <p style="color:red; font-size:1em;">{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            {% endif %}
+        <label for="login">Login</label>
+        
+        <input placeholder="Username" name="name">
+        <input  type='password' placeholder="password" name="pass">
+        <input type="submit">
+    </form>
+    <form id="create" action="/validateCreate" method="post">
+        {% if err == 1%}
+            {% with messages = get_flashed_messages()%}
+                {% if messages%}
+                    {% for message in messages%}
+                     <p style="color:red; font-size:1em;">{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            {% endif %}
+        <label for="create">Create</label> 
+        <input placeholder="Username" name="name">
+        <input placeholder="password" type='password' name="pass">
+        <input placeholder="Confirm Password" type='password' name="pass-confirm">
+        <input type="submit">
+    </form>
+    </div>
+    
+</body>
+</html>
