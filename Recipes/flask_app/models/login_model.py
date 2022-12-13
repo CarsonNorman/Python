@@ -17,11 +17,14 @@ class Login:
         VALUES(%(name)s, %(pass)s)
         """
         results = connectToMySQL('recipes').query_db(query, data)
-        user = cls.get_one({'id': results})
-        print('user', user)
-        session['id'] = user['id']
-        return redirect(url_for('renderHome', id=user['id']))
-
+        if results:
+            user = cls.get_one({'id': results})
+            print('user', user)
+            session['id'] = user['id']
+            return redirect(url_for('renderHome', id=user['id']))
+        else: 
+            flash('Please login with existing account')
+            return redirect(url_for('landing', err=1))
     @classmethod
     def get_one(cls, data):
         print('data', data)
